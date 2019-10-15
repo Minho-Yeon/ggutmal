@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style type="text/css">
+        #first div {
+            color: blue;
+        }
+    </style>
+    <script src="https://unpkg.com/vue"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id='first'>
+         <div>{{output()}}</div>     <!--output1 메서드 호출 -->
+        <div>{{output($event)}}</div>  <!--output1 메서드 호출 -->
+
+        <div>{{output2(10,$event)}}</div>  <!--output2메서드 호출 -->
+        
+     </div>
+     <script type="text/javascript">
+       var model = {title : '<h2>SSAFY</h2>'};
+       var first = new Vue({
+           el : '#first',
+           data : model,
+           methods: {
+               output : function(event) {   //이벤트 객체만을 사용할 때
+                  return "hello";
+               },
+               output2 : function(number,event) { //다른 아규먼트와 함께 이벤트객체를 사용할 때
+                   return number+"World";
+               },
+            }
+        });
+       Vue.config.devtools = true;  
+       // devtools에 보인다. 디버그용
+     </script></body></html>
+     
+
+</body>
+
+</html>
